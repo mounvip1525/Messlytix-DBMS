@@ -25,7 +25,7 @@ app.debug = True
 # class Feedback(db.Model):
 #     __tablename__ = 'feedback'
 #     name = db.Column(db.String(200))
-#     regno = db.Column(db.String(200), primary_key=True)
+#     regno = db.Column(db.String(200), primary_key=True)           #This is the feedback tavle that is recording the attendance as of now
 #     attendance = db.Column(db.String(4))
 
 #     def __init__(self, name, regno, attendance):
@@ -41,7 +41,9 @@ app.debug = True
 #     def __init__(self,regno):
 #         self.regno = regno
 
-conn=mysql.connector.connect(user="root",password="123456",database="messlytix")
+conn=mysql.connector.connect(user="root",           #enter username for your mysql usernmae , defaultis root
+                            password="123456",         #enter the password
+                            database="messlytix")         #enter the database
 cur=conn.cursor()
 
 
