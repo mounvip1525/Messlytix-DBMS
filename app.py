@@ -1,49 +1,59 @@
 import numpy as np
 from flask import Flask, request, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
+import mysql.connector
 import pickle
 
 app = Flask(__name__,
             static_folder='static')
+app.debug = True
 
-ENV = 'dev'
-if ENV == 'dev':
-    app.debug = True
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:12345@localhost/studentsfeedback'
+# ENV = 'dev'
+# if ENV == 'dev':
+#     app.debug = True
+#     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:12345@localhost/studentsfeedback'
 
-else:
-    app.debug = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://nptnseizvhcwnm:df32e61e0031fb5e240f101ffc20c8a9b8ba47861f76432bf694f4dbc22dce05@ec2-34-202-88-122.compute-1.amazonaws.com:5432/d6603amvbvjjcv'
+# else:
+#     app.debug = False
+#     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://nptnseizvhcwnm:df32e61e0031fb5e240f101ffc20c8a9b8ba47861f76432bf694f4dbc22dce05@ec2-34-202-88-122.compute-1.amazonaws.com:5432/d6603amvbvjjcv'
 
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db = SQLAlchemy(app)
-
-
-class Feedback(db.Model):
-    __tablename__ = 'feedback'
-    name = db.Column(db.String(200))
-    regno = db.Column(db.String(200), primary_key=True)
-    attendance = db.Column(db.String(4))
-
-    def __init__(self, name, regno, attendance):
-        self.name = name
-        self.regno = regno
-        self.attendance = attendance
-
-class Login(db.Model):
-    __tablename__ = 'login'
-    id = db.Column(db.Integer, primary_key=True)
-    regno = db.Column(db.String(200))
-
-    def __init__(self,regno):
-        self.regno = regno
+# db = SQLAlchemy(app)
 
 
+# class Feedback(db.Model):
+#     __tablename__ = 'feedback'
+#     name = db.Column(db.String(200))
+#     regno = db.Column(db.String(200), primary_key=True)
+#     attendance = db.Column(db.String(4))
+
+#     def __init__(self, name, regno, attendance):
+#         self.name = name
+#         self.regno = regno
+#         self.attendance = attendance
+
+# class Login(db.Model):
+#     __tablename__ = 'login'
+#     id = db.Column(db.Integer, primary_key=True)
+#     regno = db.Column(db.String(200))
+
+#     def __init__(self,regno):
+#         self.regno = regno
+
+conn=mysql.connector.connect(user="root",password="123456",database="messlytix")
+cur=conn.cursor()
 
 
 model = pickle.load(open('messmodel.pkl', 'rb'))
-attendees = db.session.query(Feedback).filter(Feedback.attendance == 'yes').count()
+def getattendees():
+    query=("SELECT count(*) FROM feedback WHERE attendance=1")
+    cur.execute(query)
+    q=cur.fetchone()
+    ans=q[0]
+    return ans
+
+# attendees = db.session.query(Feedback).filter(Feedback.attendance == 'yes').count()
 
 
 @app.route('/', methods=["GET", "POST"])
@@ -60,7 +70,8 @@ def choose():
 # admin
 @app.route('/admin')
 def admin():
-    attendees = db.session.query(Feedback).filter(Feedback.attendance == 'yes').count()
+    # attendees = db.session.query(Feedback).filter(Feedback.attendance == 'yes').count()
+    attendees=getattendees()
     return render_template('admin.html',new_attendance='The number of attendees are {} \n'.format(attendees))
 
 # analyse
@@ -80,17 +91,25 @@ def submit():
         name = request.form['name']
         regno = request.form['regno']
         attendance = request.form['attendance']
+        if attendance=="yes":
+            attendance=1
+        elif attendance=="no":
+            attendance="no"
 
-        if db.session.query(Feedback).filter(Feedback.regno == regno).count() == 0:
-            data = Feedback(name, regno, attendance)
-            if db.session.query(Login).filter(Login.regno == regno).count() == 0:
-                return render_template('student.html',message='Registraion Number Not Recognised')
-            else:
-                db.session.add(data)
-                db.session.commit()
-                return render_template('success.html')
-        else:
-            return render_template('student.html')
+        # if db.session.query(Feedback).filter(Feedback.regno == regno).count() == 0:
+        #     data = Feedback(name, regno, attendance)
+        #     if db.session.query(Login).filter(Login.regno == regno).count() == 0:
+        #         return render_template('student.html',message='Registraion Number Not Recognised')
+        #     else:
+        # db.session.add(data)
+        # db.session.commit()
+        add_entry=("INSERT INTO feedback ""(regno,name,attendance)""VALUES(%s,%s,%s)")
+        entry=(regno,name,attendance)
+        cur.execute(add_entry,entry)
+        conn.commit()
+        return render_template('success.html')
+        # else:
+        #     return render_template('student.html')
 
 
 # prediction
@@ -166,7 +185,7 @@ def predict():
     prediction = model.predict([[day1, weekend, New_Menu_rating, Wastage]])
     print([day1, weekend, New_Menu_rating, Wastage])
     output = round(prediction[0], 3)
-    attendees = db.session.query(Feedback).filter(Feedback.attendance == 'yes').count()
+    attendees = getattendees()
 
     return render_template('admin.html', new_attendance='The number of attendees are {} \n'.format(attendees), prediction_text1='Menu rating for Today is : {} \n'.format(New_Menu_rating), prediction_text2='Average wastage on this day is: {} \n '.format(mean_wastage), prediction_text3='To avoid this wastage this is the predicted amount to be cooked :\n{}'.format(output))
 
