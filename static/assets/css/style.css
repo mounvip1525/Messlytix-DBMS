@@ -224,3 +224,13 @@ body {
   font-size: 1.5rem;
   color: white;
 }
+th{
+  color:white;
+}
+td{
+  color:whitesmoke;
+}  
+.table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+ background-color: #3497c9;
+}
