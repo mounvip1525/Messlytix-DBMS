@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!--hello-->
+  <!-- Meta Tags For SEO -->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="A simple resource hub for Lockdown">
+  <meta name="keywords" content="COVID-19,Quarantine,Lockdown,Stay at Home">
+  <meta name="theme-color" content="#FCE205">
+  <!-- Title -->
+  <title>Messlytix</title>
+
+  <!-- Bootstrap Link -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+  <!-- CSS link -->
+  <link rel="stylesheet" href="../static/assets/css/style.css">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+  <link rel="icon" href="../static/assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="../static/assets/img/apple-touch-icon.png">
+
+  <!-- Fonts Link -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+  <!--AOS Links-->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<!-- chatbot -->
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/5ea837cf69e9320caac814c4/default';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <!--End of Tawk.to Script-->
+</head>
+<script>
+  window.onload = setInterval(clock,1000);
+function clock()
+{
+   var d = new Date();
+   var date = d.getDate();
+   var year = d.getFullYear();
+   var month = d.getMonth();
+   var monthArr = ["January", "February","March", "April", "May", "June", "July", "August", "September", "October", "November","December"];
+   month = monthArr[month];
+   document.getElementById("datetime").innerHTML=date+" "+month+", "+year+".";
+}
+</script>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="80">
+  <section id="section-1">
+
+    <!-- Navbar-->
+    <nav class="navbar navbar-expand-xl fixed-top" id="myScrollspy">
+
+      <!-- name -->
+      <a class="navbar-brand" href="#section-1">
+        <img class="fluid" src="../static/assets/img/logo-navbar.png" style="height: 5rem;">
+      </a>
+
+      <!-- toggler -->
+      <button class="xyz navbar-toggler custom-toggler" type="button" data-toggle="collapse"
+        data-target="#navbarSupportedContent " aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- List Items -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav nav-pills">
+          <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
+            <a class="xyz nav-link mx-4 mt-2" href="{{url_for('home')}}">Home</a>
+          </li>
+          <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
+            <a class="nav-link mx-4 mt-2" href="">Why use Messlytix?</a>
+          </li>
+        </ul>
+        <div style="padding-left: 37rem;"><a href="https://messlytixdashboard.herokuapp.com/" target="_blank">
+            <button class="btn2 btn btn-light">Dashboard
+            </button></a></div>
+      </div>
+
+    </nav>
+
+  </section>
+  <section id="section-2" >
+    <div class="text-left ml-3" style="text-align: center;">
+        <h1 class="heading-top" style="margin-top: 60px; margin-bottom: 0px;padding-bottom: 0px; text-align: center;">
+          Hello Admin!
+        </h1>
+        <div style="text-align: center;"><span class="head-text">Today is </span><span class="head-text" id="datetime"></span></div>
+    </div>
+</section>
+      
+
+    </div>
+  </section >
+         <h1 class="heading">{{ new_attendance }}</h1>
+        <div class="pricing-column col-lg-8 " style="margin: 2rem 15rem;">
+          <div class="card">
+            <div class="card-header">
+              <h3>Amount of food to be cooked today</h3>
+
+            </div>
+            <div class="card-body">
+              <h2 class="price-text">Enter the details:</h2>
+              <form action="{{ url_for('predict')}}" , method="post">
+                <div class="abc"><label>Weekday:</label><input class="input" type="text" name="weekday"
+                    required="required"></div>
+                <button class="btn1 btn-block" type="submit">Submit</button>
+              </form>
+              {{prediction_text1}}
+              <br>
+              {{prediction_text2}}
+              <br>
+              {{prediction_text3}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+</body>
+
+</html>

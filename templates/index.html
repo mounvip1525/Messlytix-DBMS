@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!--hello-->
+  <!-- Meta Tags For SEO -->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Title -->
+  <title>Messyltix</title>
+
+  <!-- Bootstrap Link -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+  <!-- CSS link -->
+  <link rel="stylesheet" href="../static/assets/css/style.css">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+  <link rel="icon" href="../static/assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="../static/assets/img/apple-touch-icon.png">
+
+  <!-- Fonts Link -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <!--AOS Links-->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<!-- chatbot -->
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/5ea837cf69e9320caac814c4/default';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <!--End of Tawk.to Script-->
+</head>
+
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="80">
+  <section id="section-1">
+
+    <!-- Navbar-->
+    <nav class="navbar navbar-expand-xl fixed-top" id="myScrollspy">
+
+      <!-- name -->
+      <a class="navbar-brand" href="#section-1">
+        <img src="../static/assets/img/logo-navbar.png" alt="random" style="width: 4rem;">
+      </a>
+
+      <!-- toggler -->
+      <button class="xyz navbar-toggler custom-toggler" type="button" data-toggle="collapse"
+        data-target="#navbarSupportedContent " aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- List Items -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav nav-pills">
+          <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
+            <a class="xyz nav-link mx-4 mt-2" href="#section-1">Home</a>
+          </li>
+          <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
+            <a class="nav-link mx-4 mt-2" href="#section-2">Benefits</a>
+          </li>
+
+
+          </li>
+        </ul>
+        <div style="margin-left:50rem;">
+          <button class="login">
+            <a class="nav-link" href="{{url_for('choose')}}" target="blank">Login</a>
+          </button>
+        </div>
+
+      </div>
+
+    </nav>
+
+  </section>
+
+  <section id="section-1">
+    <div class="container">
+      <h1 class="heading-top">Messlytix</h1>
+      <div class="row">
+        <div class="col-lg-8">
+          <h2 class="head-text" style="margin-bottom:30px;">The mess analytics tool for detailed real-time ML-based
+            analytics to minimize your food wastages and managing attendance.</h2>
+          <a href="{{url_for('choose')}}">
+            <button class="login">
+              Login
+            </button>
+          </a>
+        </div>
+        <div class="img-fluid col-lg-4">
+          <img src="../static/assets/img/home-img.png" alt="random" style="margin-top: -12rem;">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="section-2">
+    <div class="container">
+      <h1 class="heading">Benefits</h1>
+      <div class="row">
+        <div class="col-lg-6" style="margin-left: 0;">
+          <ul>
+            <li>Get ML-based predictions to optimize your food procurement and limit food wastage.</li>
+            <li>Get live-attendance updates through student check-ins.</li>
+            <li>Get detailed statistics on your food procurement and wastage.</li>
+            <li>Incentivize your mess with rich menu tracking and feedback.</li>
+          </ul>
+        </div>
+        <div class="img-fluid col-lg-6">
+          <img src="../static/assets/img/graph-img.png" alt="random" style="width: max-content;">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+</body>
+
+</html>
