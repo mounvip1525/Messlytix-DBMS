@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+{% block content %}
+<body>
+    <script>
+        window.onload = setInterval(clock,1000);
+      function clock()
+      {
+         var d = new Date();
+         var date = d.getDate();
+         var year = d.getFullYear();
+         var month = d.getMonth();
+         var monthArr = ["January", "February","March", "April", "May", "June", "July", "August", "September", "October", "November","December"];
+         month = monthArr[month];
+         document.getElementById("datetime").innerHTML=date+" "+month+", "+year+".";
+      }
+      </script>
+    <nav class="navbar navbar-expand-xl fixed-top" id="myScrollspy">
+  
+      <!-- name -->
+      <a class="navbar-brand" href="#section-1">
+        <img class="fluid" src="../static/assets/img/logo-navbar.png" style="height: 5rem;">
+      </a>
+  
+      <!-- toggler -->
+      <button class="xyz navbar-toggler custom-toggler" type="button" data-toggle="collapse"
+        data-target="#navbarSupportedContent " aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <!-- List Items -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto nav-pills">
+          <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
+            <a class="xyz nav-link mx-4 mt-2" href="{{url_for('home')}}">Home</a>
+          </li>
+          <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
+            <a class="nav-link mx-4 mt-2" href="#section-2">Why use Messlytix?</a>
+          </li>
+        </ul>
+    </nav>
+    <div class="pricing-colum " style="margin: 4rem 15rem;">
+        <div class="card">
+          <div class="card-header">
+            <h3>Your Mess details are:</h3>
+          </div>
+          <div class="card-body">
+            <h1>Mess ID: <span class="badge badge-secondary" style="background-color:#007bba;margin-left:2.5rem;"> MS011</span></h1>
+            <h1 style="margin-left:7.6rem;">Today is: <span class="badge badge-secondary" style="background-color:#007bba;margin-left:2rem;"><span class="head-text" id="datetime"></span></span></h1>
+                    <div class="dropdown" style="margin-top:1rem;">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="background-color:#007bba;margin-left:15rem;">
+                      Select Meal
+                    </button>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="#">Breakfast</a>
+                      <a class="dropdown-item" href="#">Lunch</a>
+                      <a class="dropdown-item" href="#">Dinner</a>
+                    </div>
+                  </div></div>
+                  <div style="display:flex;flex-direction: row;justify-content: space-between;margin-left:2em;margin-right:2em;margin-bottom:2.5rem;margin-top:2em;">
+                  <div class="form-check">
+                    
+                    <label class="form-check-label">
+                     <a href="{{url_for('menu')}}"> <input type="radio" class="form-check-input" name="menu">Menu</a>
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                        <a href="{{url_for('rating')}}">  <input type="radio" class="form-check-input" name="rating">Rating</a>
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                        <a href="{{url_for('specialfood')}}">  <input type="radio" class="form-check-input" name="specialrequest">Special Request</a>
+                    </label>
+                  </div>
+                </div>
+          </div>
+        </div>
+      </div>
+{% endblock content %}
