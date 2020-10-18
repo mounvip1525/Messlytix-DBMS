@@ -1,12 +1,15 @@
 import numpy as np
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template,flash
 from flask_sqlalchemy import SQLAlchemy
 import mysql.connector
+import time
+from datetime import datetime
 import pickle
 
 app = Flask(__name__,
             static_folder='static')
 app.debug = True
+app.secret_key = "super secret key"
 
 # ENV = 'dev'
 # if ENV == 'dev':
@@ -64,6 +67,11 @@ def getattendees():
 def home():
     return render_template('index.html')
 
+# student signup
+@app.route('/signup',methods=['GET','POST'])
+def signup():
+    return render_template('studentsignup.html')
+
 # Choose
 @app.route('/choose')
 def choose():
@@ -96,7 +104,7 @@ def submit():
         if attendance=="yes":
             attendance=1
         elif attendance=="no":
-            attendance="no"
+            attendance=0
 
         # if db.session.query(Feedback).filter(Feedback.regno == regno).count() == 0:
         #     data = Feedback(name, regno, attendance)
@@ -107,14 +115,39 @@ def submit():
         # db.session.commit()
         add_entry=("INSERT INTO feedback ""(regno,name,attendance)""VALUES(%s,%s,%s)")
         entry=(regno,name,attendance)
-        cur.execute(add_entry,entry)
-        conn.commit()
-        return render_template('success.html')
+        try:
+            cur.execute(add_entry,entry)
+            conn.commit()
+            return render_template('success.html')
+        except mysql.connector.IntegrityError as err:
+            flash("Error: Duplicate entry encountered",'error')
+            return render_template("student.html")
+        
         # else:
         #     return render_template('student.html')
 
+@app.route('/submitdetails',methods=['GET','POST'])
+def submitdetails():
+    regno=request.form['regno']
+    fname=request.form['fname']
+    mname=request.form['mname']
+    lname=request.form['lname']
+    email=request.form.get('email')
+    messid=request.form['messid']
+    phno=request.form['phno']
+    state=request.form['State']
+    ts = time.time()
+    timestamp = datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+    regtime=timestamp
 
-# prediction
+    sdetails=("INSERT INTO student_admin (reg_no,fname,mname,lname,email_id,phone_no,reg_time,mess_id,state) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)")
+    vals=(regno,fname,mname,lname,email,phno,regtime,messid,state)
+    cur.execute(sdetails,vals)
+    conn.commit()
+    return render_template('success.html')
+
+
+# prediction0
 @app.route('/predict', methods=['POST'])
 def predict():
     '''

@@ -75,7 +75,6 @@ body {
   font-weight: bold;
   font-size: 20pt;
   padding: 1.3rem;
-
   border-left: 3px solid white;
   background-color: #007bba;
 }
@@ -168,7 +167,7 @@ body {
   color: black;
 }
 .card-header {
-  background-color: #007bba;
+  background-color: #a8dda8;
 }
 .btn1 {
   background-color: black;

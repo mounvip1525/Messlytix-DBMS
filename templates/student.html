@@ -14,6 +14,7 @@ function clock()
 }
 </script>
 <body  data-spy="scroll" data-target="#myScrollspy" data-offset="80" style="text-align: center;">
+
   <section id="section-1">
 
     <!-- Navbar-->
@@ -23,6 +24,16 @@ function clock()
       <a class="navbar-brand" href="#section-1">
         <img class="fluid" src="../static/assets/img/logo-navbar.png" style="height: 5rem;">
       </a>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for category, message in messages %}
+          <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+      {% endwith %}
 
       <!-- toggler -->
       <button class="xyz navbar-toggler custom-toggler" type="button" data-toggle="collapse"

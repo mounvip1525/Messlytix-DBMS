@@ -52,11 +52,15 @@
               <h2 class="price-text">Enter the details:</h2>
               <h2 class="price-text">{{ message }}</h2>
   
-              <form action="{{ url_for('submit')}}", method="post">
-                  <div class="abc"><label>First Name:</label><input class="input" type="text" name="name" required="required"></div>
-                  <div class="abc"><label>Last Name:</label><input class="input" type="text" name="name" required="required"></div>
-                  <div class="abc"><label>Phone No. :</label><input class="input" type="text" name="regno" required="required"></div>
-                  <div class="abc" ><label>Email ID:</label><input class="input" type="text" name="regno" required="required"></div>
+              <form action="{{ url_for('submitdetails')}}", method="post">
+                  <div class="abc"><label>First Name:</label><input class="input" type="text" name="fname" required="required"></div>
+                  <div class="abc"><label>Mid Name:</label><input class="input" type="text" name="mname"  default='NULL'></div>
+                  <div class="abc"><label>Last Name: </label><input class="input" type="text" name="lname" required="required"></div>
+                  <div class="abc"><label>Reg No. :</label><input class="input" type="text" name="regno" required="required"></div>
+                  <div class="abc" ><label>Email ID:</label><input class="input" type="text" name="email" required="required"></div>
+                  <div class="abc" ><label>mess ID: </label><input class="input" type="text" name="messid" required="required"></div>
+                  <div class="abc" ><label>Phone no:  </label><input class="input" type="text" name="phno" required="required"></div>
+                  <div class="abc" ><label>State code:  </label><input class="input" type="text" name="State" required="required"></div>
               <button class="btn1 btn-block" type="submit">Submit</button>
             </form>
             </div>
