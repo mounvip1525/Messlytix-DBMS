@@ -36,7 +36,7 @@ def home():
 # student signup
 @app.route('/signup',methods=['GET','POST'])
 def signup():
-    return render_template('studentsignup.html')
+    return render_template('signup.html')
 
 # Choose
 @app.route('/choose')
@@ -102,8 +102,26 @@ def submitdetails():
     cur.execute(sdetails,vals)
     conn.commit()
     return render_template('success.html')
-
-
+#mess
+@app.route('/mess')
+def mess():
+    return render_template('mess.html')
+#mess-rating
+@app.route('/rating')
+def rating():
+    return render_template('rating.html')
+#menu
+@app.route('/menu')
+def menu():
+    return render_template('menu.html')
+#special-request
+@app.route('/specialrequest')
+def specialrequest():
+    return render_template('specialrequest.html')
+#special-food
+@app.route('/specialfood')
+def specialfood():
+    return render_template('specialfood.html')
 # prediction0
 @app.route('/predict', methods=['POST'])
 def predict():

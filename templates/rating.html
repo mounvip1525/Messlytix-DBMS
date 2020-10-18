@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% block content %}
+<body>
+    <nav class="navbar navbar-expand-xl fixed-top" id="myScrollspy">
+  
+        <!-- name -->
+        <a class="navbar-brand" href="#section-1">
+          <img class="fluid" src="../static/assets/img/logo-navbar.png" style="height: 5rem;">
+        </a>
+    
+        <!-- toggler -->
+        <button class="xyz navbar-toggler custom-toggler" type="button" data-toggle="collapse"
+          data-target="#navbarSupportedContent " aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <!-- List Items -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto nav-pills">
+            <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
+              <a class="xyz nav-link mx-4 mt-2" href="{{url_for('home')}}">Home</a>
+            </li>
+            <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
+              <a class="nav-link mx-4 mt-2" href="#section-2">Why use Messlytix?</a>
+            </li>
+          </ul>
+      </nav>
+      <div class="card-header" style="width:75%;margin:auto;margin-top:80px;border-radius: 3px;">
+        <h2> Your Mess ID: MID01</h2>
+    </div>
+    <div class="card-body" style="width:50%;margin: auto;">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Item ID</th>
+            <th>Item Name</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>IT01</td>
+            <td>Pizza</td>
+            <td>4.5</td>
+          </tr>
+          <tr>
+            <td>IT02</td>
+            <td>Burger</td>
+            <td>3.5</td>
+          </tr>
+          <tr>
+            <td>IT03</td>
+            <td>Pasta</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>IT04</td>
+            <td>Shawarma</td>
+            <td>5</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</body>
+{% endblock content %}
