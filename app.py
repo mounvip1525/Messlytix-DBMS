@@ -158,6 +158,10 @@ def rating():
 def menu():
     return render_template('menu.html')
 #special-request
+@app.route('/specialrequest')
+def specialrequest():
+    return render_template('specialrequest.html')
+#special-food
 @app.route('/specialfood')
 def specialfood():
     return render_template('specialfood.html')
