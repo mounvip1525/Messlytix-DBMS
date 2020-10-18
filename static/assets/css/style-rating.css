@@ -1,0 +1,63 @@
+/* RATING OF MENU rectangle */
+.rating-of-menu-rectangle{
+    
+    position: absolute;
+    width: 754px;
+    height: 110px;
+    left: 373px;
+    top: 132px;
+    
+    background: #007bba;
+    }
+    
+    
+    
+    /* "RATING OF MENU" text */
+    #rating-of-menu-text{
+        position: relative;
+    width: 556px;
+    height: 69px;
+    left: 489px;
+    top: 153px;
+    padding-left:10px;
+padding-right:10px;
+    
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 56px;
+    
+    color: #FFFFFF;
+    }
+
+
+    /* MENU ITEMS rectangle */
+    .menu-items-rectangle{
+        position: absolute;
+width: 512px;
+height: 95px;
+left: 511px;
+top: 451px;
+
+background: #FFFFFF;
+    }
+
+/* "LIST OF MENU ITEMS" text */    
+#menu-items-text{
+    
+position: relative;
+width: 464px;
+height: 56px;
+left: 551px;
+top: 300px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 48px;
+line-height: 56px;
+
+color: #000000;
+
+}

@@ -1,0 +1,107 @@
+
+/* 'MESS' rantangle */
+
+.mess-rectangle{
+    position: absolute;
+    width: 100vh;
+    height: 100vh;
+    left: 101px;
+    top: 50px;
+    
+    background: #007bba;
+    }
+    
+    /* "MESS" text */
+    #mess-text{
+    position: relative;
+    width: 701.13px;
+    height: 56px;
+    left: 402.56px;
+    top: 73px;
+    
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 56px;
+    text-align: center;
+    
+    color: #ffffff;
+    
+    
+    }
+    
+    
+    
+    
+    /* MEAL, MESS ID, DATE rectangle */
+    .meal-messid-date-rectangle{
+        position: absolute;
+    width: 598px;
+    height: 100vh;
+    left: 424px;
+    top: 253px;
+    
+    background: #ffffff;
+    border-radius: 27px;
+    
+    }
+    
+    
+    /* "MEAL", "MESS ID", "DATE" text */
+    #meal-messid-date-text{
+        position: relative;
+    width: 148.92px;
+    height: 28px;
+    left: 647px;
+    top: 170px;
+    
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    
+    color: #000000;
+    
+    }
+    
+    
+    /* MENU, SPECIAL REQUEST, RATING rectangle */
+    .menu-specialrequest-rating-rectangle{
+        position: absolute;
+    width: 1000px;
+    height: 64px;
+    left: 330px;
+    top: 45px;
+    
+    background: #ffffff;
+    }
+    
+    
+    
+    /* "MENU", "SPECIAL REQUEST", "RATING" text */
+    #menu-specialrequest-rating-text{
+        position: relative;
+        width: 639.87px;
+        height: 33px;
+        left: 418.49px;
+        top: 275px;
+        
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 38px;
+        text-align: center;
+        
+        color:#000000;
+        
+    
+    }
+    
+    
+    
+    
+    
