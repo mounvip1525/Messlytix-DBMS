@@ -39,9 +39,10 @@ body {
 }
 
 .login {
-  background-color: white;
+  background-color: #51adcf;
   color: black;
   border: 3px solid rgba(0, 0, 0, 0.842);
+  border-radius: 5px;
   font-weight: bold;
   padding-left: 30px;
   padding-right: 30px;
@@ -49,7 +50,7 @@ body {
   padding-bottom: 10px;
 }
 .login:hover {
-  background-color: black;
+  background-color: #0278ae;
   color: rgb(255, 255, 255);
   border: 3px solid rgba(255, 255, 255, 0.842);
 }
@@ -168,6 +169,7 @@ body {
 }
 .card-header {
   background-color: #a8dda8;
+  color: #000000;
 }
 .btn1 {
   background-color: black;

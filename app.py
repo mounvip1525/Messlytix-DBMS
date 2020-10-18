@@ -11,39 +11,6 @@ app = Flask(__name__,
 app.debug = True
 app.secret_key = "super secret key"
 
-# ENV = 'dev'
-# if ENV == 'dev':
-#     app.debug = True
-#     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:12345@localhost/studentsfeedback'
-
-# else:
-#     app.debug = False
-#     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://nptnseizvhcwnm:df32e61e0031fb5e240f101ffc20c8a9b8ba47861f76432bf694f4dbc22dce05@ec2-34-202-88-122.compute-1.amazonaws.com:5432/d6603amvbvjjcv'
-
-# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-# db = SQLAlchemy(app)
-
-
-# class Feedback(db.Model):
-#     __tablename__ = 'feedback'
-#     name = db.Column(db.String(200))
-#     regno = db.Column(db.String(200), primary_key=True)           #This is the feedback tavle that is recording the attendance as of now
-#     attendance = db.Column(db.String(4))
-
-#     def __init__(self, name, regno, attendance):
-#         self.name = name
-#         self.regno = regno
-#         self.attendance = attendance
-
-# class Login(db.Model):
-#     __tablename__ = 'login'
-#     id = db.Column(db.Integer, primary_key=True)
-#     regno = db.Column(db.String(200))
-
-#     def __init__(self,regno):
-#         self.regno = regno
-
 conn=mysql.connector.connect(user="root",           #enter username for your mysql usernmae , defaultis root
                             password="123456",         #enter the password
                             database="messlytix")         #enter the database
@@ -58,7 +25,6 @@ def getattendees():
     ans=q[0]
     return ans
 
-# attendees = db.session.query(Feedback).filter(Feedback.attendance == 'yes').count()
 
 
 @app.route('/', methods=["GET", "POST"])
@@ -80,7 +46,6 @@ def choose():
 # admin
 @app.route('/admin')
 def admin():
-    # attendees = db.session.query(Feedback).filter(Feedback.attendance == 'yes').count()
     attendees=getattendees()
     return render_template('admin.html',new_attendance='The number of attendees are {} \n'.format(attendees))
 
@@ -105,14 +70,6 @@ def submit():
             attendance=1
         elif attendance=="no":
             attendance=0
-
-        # if db.session.query(Feedback).filter(Feedback.regno == regno).count() == 0:
-        #     data = Feedback(name, regno, attendance)
-        #     if db.session.query(Login).filter(Login.regno == regno).count() == 0:
-        #         return render_template('student.html',message='Registraion Number Not Recognised')
-        #     else:
-        # db.session.add(data)
-        # db.session.commit()
         add_entry=("INSERT INTO feedback ""(regno,name,attendance)""VALUES(%s,%s,%s)")
         entry=(regno,name,attendance)
         try:
