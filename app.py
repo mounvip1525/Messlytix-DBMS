@@ -44,9 +44,9 @@ app.secret_key = "super secret key"
 #     def __init__(self,regno):
 #         self.regno = regno
 
-conn=mysql.connector.connect(user="root",           #enter username for your mysql usernmae , defaultis root
-                            password="123456",         #enter the password
-                            database="messlytix")         #enter the database
+conn=mysql.connector.connect(user='im_mounvi15', password='Mounvi@123',
+                              host='127.0.0.1', database='messlytix',
+                              auth_plugin='mysql_native_password')     
 cur=conn.cursor()
 
 
@@ -70,7 +70,7 @@ def home():
 # student signup
 @app.route('/signup',methods=['GET','POST'])
 def signup():
-    return render_template('studentsignup.html')
+    return render_template('signup.html')
 
 # Choose
 @app.route('/choose')
