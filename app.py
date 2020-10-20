@@ -11,9 +11,10 @@ app = Flask(__name__,
 app.debug = True
 app.secret_key = "super secret key"
 
-conn=mysql.connector.connect(user="root",           #enter username for your mysql usernmae , defaultis root
-                            password="123456",         #enter the password
-                            database="messlytix")         #enter the database
+conn=mysql.connector.connect(host="remotemysql.com",
+                            user="q97ShIgpvf",           #enter username for your mysql usernmae , defaultis root
+                            password="kwoOpcYuzD",         #enter the password
+                            database="q97ShIgpvf")         #enter the database
 cur=conn.cursor()
 
 
