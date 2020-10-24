@@ -4,7 +4,7 @@
     <section id="section-1">
   
       <!-- Navbar-->
-      <nav class="navbar navbar-expand-xl fixed-top" id="myScrollspy">
+      <nav class="navbar navbar-expand-xl fixed-top" style="height:100px" id="myScrollspy">
   
         <!-- name -->
         <a class="navbar-brand" href="#section-1">
@@ -35,7 +35,7 @@
     </section>
     <section id="section-2">
       <div class="text-left ml-3">
-          <p class="heading-top" style="margin-top: 60px; margin-bottom: 0px;padding-bottom: 0px; text-align:center;">
+          <p class="heading-top-student" style="margin-top: 60px; margin-bottom: 0px;padding-bottom: 0px; text-align:center;">
             Welcome Student!
           </p>
           
@@ -43,19 +43,18 @@
   </section>
   
               
-        <div class="pricing-colum " style="margin: 2rem 15rem;">
+        <div class="pricing-colum " style="margin: 2rem 18rem;">
           <div class="card">
             <div class="card-header">
               <h3>Give your details below</h3>
             </div>
             <div class="card-body">
-              <h2 class="price-text">Enter the details:</h2>
               <h2 class="price-text">{{ message }}</h2>
   
               <form action="{{ url_for('submitdetails')}}", method="post">
                   <div class="abc"><label>First Name:</label><input class="input" type="text" name="fname" required="required"></div>
                   <div class="abc"><label>Mid Name:</label><input class="input" type="text" name="mname"  default='NULL'></div>
-                  <div class="abc"><label>Last Name: </label><input class="input" type="text" name="lname" required="required"></div>
+                  <div class="abc"><label>Last Name:</label><input class="input" type="text" name="lname" required="required"></div>
                   <div class="abc"><label>Reg No. :</label><input class="input" type="text" name="regno" required="required"></div>
                   <div class="abc" ><label>Email ID:</label><input class="input" type="text" name="email" required="required"></div>
                   <div class="abc" ><label>mess ID: </label><input class="input" type="text" name="messid" required="required"></div>

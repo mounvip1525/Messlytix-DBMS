@@ -18,7 +18,7 @@ function clock()
   <section id="section-1">
 
     <!-- Navbar-->
-    <nav class="navbar navbar-expand-xl fixed-top" id="myScrollspy">
+    <nav class="navbar navbar-expand-xl fixed-top" style="height:100px" id="myScrollspy">
 
       <!-- name -->
       <a class="navbar-brand" href="#section-1">
@@ -57,7 +57,7 @@ function clock()
   </section>
   <section id="section-2">
     <div class="text-left ml-3">
-        <p class="heading-top" style="margin-top: 60px; margin-bottom: 0px;padding-bottom: 0px; text-align:center;">
+        <p class="heading-top-student" style="margin-top: 60px; margin-bottom: 0px;padding-bottom: 0px; text-align:center;">
           Hello Student!
         </p>
         <div style="text-align: center;">
@@ -68,13 +68,12 @@ function clock()
 </section>
 
             
-      <div class="pricing-colum " style="margin: 2rem 15rem;">
+      <div class="pricing-colum " style="margin: 2rem 18rem;">
         <div class="card">
           <div class="card-header">
             <h3>Give Mess Attendance details</h3>
           </div>
           <div class="card-body">
-            <h2 class="price-text">Enter the details:</h2>
             <h2 class="price-text">{{ message }}</h2>
 
             <form action="{{ url_for('submit')}}", method="post">

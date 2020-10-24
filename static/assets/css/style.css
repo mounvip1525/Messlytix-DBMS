@@ -12,9 +12,9 @@ body {
     background-color: #094c6d;
     color: white;
     border: 2px solid white;
-    margin: 3rem 10rem;
-    margin-top: 5rem;
-    padding: 2rem;
+    margin: 3rem 13rem;
+    margin-top: 2rem;
+    padding: 1rem;
     box-shadow: 20px 20px rgba(0, 255, 234, 0.616),
     30px 30px rgba(159, 252, 255, 0.644),
     40px 40px rgba(131, 118, 250, 0.589),
@@ -39,13 +39,12 @@ body {
 }
 
 .login {
-  background-color: #51adcf;
-  color: black;
+  color:black;
   border: 3px solid rgba(0, 0, 0, 0.842);
   border-radius: 5px;
   font-weight: bold;
   padding-left: 30px;
-  padding-right: 30px;
+  padding-right: 35px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
@@ -152,9 +151,9 @@ body {
   color: #ffffff;
 }
 .abc {
-  padding: 0.5rem;
+  padding: 3px;
   text-align: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2px;
 }
 .abcd {
   padding: 0.5rem;
@@ -168,8 +167,9 @@ body {
   color: black;
 }
 .card-header {
-  background-color: #a8dda8;
+  background-color: #70daf5;
   color: #000000;
+  padding:0.75rem 0.75rem;
 }
 .btn1 {
   background-color: black;
@@ -188,7 +188,7 @@ body {
   margin-top: 1rem;
 }
 .btn1:hover {
-  background-color: #bce3fa;
+  background-color: #ffffff;
   transition: background-color 0.8s ease;
   color: black;
 }
@@ -198,7 +198,16 @@ body {
   margin-bottom: 2rem;
 }
 .price-text {
-  padding: 1.5rem;
+  padding: .5rem;
+}
+a {
+  color: white;
+  text-decoration: none;
+  background-color: transparent;
+}
+a:hover{
+  color:#81f0ff;
+  text-decoration:none;
 }
 .btn2 {
   background-color: black;
@@ -217,7 +226,11 @@ body {
 }
 .heading-top {
   font-family: "Bebas Neue", cursive;
-  font-size: 6rem;
+  font-size: 5rem;
+}
+.heading-top-student {
+  font-family: "Bebas Neue", cursive;
+  font-size: 3rem;
 }
 .head-text {
   font-family: Montserrat;
