@@ -5,9 +5,10 @@ import mysql.connector
 import time
 from datetime import datetime
 import pickle
+from passlib.hash import sha256_crypt
 
 usr='Admin' #Default Admin Username
-pwd='Password' #Default Admin Password
+pwd=sha256_crypt.hash('Password') #Default Admin Password
 usrnm=""
 
 app = Flask(__name__,
@@ -66,7 +67,7 @@ def admin():
     global usr
     global pwd
     attendees=getattendees()
-    if(uname==usr and pw==pwd):
+    if(uname==usr and sha256_crypt.verify(pw,pwd)):
         return render_template('admin.html',new_attendance='The number of attendees are {} \n'.format(attendees))
     else:
         return redirect('/adminlogin')
@@ -83,13 +84,13 @@ def student():
     usrnm = request.form.get('username')
     pswd=request.form.get('password')
     print(usrnm,pswd)
-    query=("SELECT count(*) FROM student_admin WHERE reg_no = %s AND password = %s")
-    credentials=(usrnm,pswd)
+    query=("SELECT password FROM student_admin WHERE reg_no = %s ")
+    credentials=(usrnm,)
     cur.execute(query,credentials)
     ans=cur.fetchone()
     ans=ans[0]
     print(ans)
-    if(ans == 1):
+    if(sha256_crypt.verify(pswd,ans)):
         print(usrnm)
         return render_template('student.html'), usrnm
     else:
@@ -134,7 +135,7 @@ def submitdetails():
     mname=request.form['mname']
     lname=request.form['lname']
     email=request.form.get('email')
-    pwd=request.form.get('password')
+    pwd=sha256_crypt.encrypt(request.form.get('password'))
     messid=request.form['messid']
     phno=request.form['phno']
     state=request.form['State']
