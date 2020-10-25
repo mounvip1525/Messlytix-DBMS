@@ -248,3 +248,7 @@ td{
 .table-striped>tbody>tr:nth-child(odd)>th {
  background-color: #3497c9;
 }
+.view-menu{
+  margin-top:10px;
+  font-size:20px;
+}
