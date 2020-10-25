@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block content %}
+<script>
+  window.onload = setInterval(clock,1000);
+function clock()
+{
+   var d = new Date();
+   var date = d.getDate();
+   var year = d.getFullYear();
+   var month = d.getMonth();
+   var monthArr = ["January", "February","March", "April", "May", "June", "July", "August", "September", "October", "November","December"];
+   month = monthArr[month];
+   document.getElementById("datetime").innerHTML=date+" "+month+", "+year+".";
+}
+</script>
+<body  data-spy="scroll" data-target="#myScrollspy" data-offset="80" style="text-align: center;">
+    <section id="section-1">
+
+        <!-- Navbar-->
+        <nav class="navbar navbar-expand-xl fixed-top" style="height:100px" id="myScrollspy">
+    
+          <!-- name -->
+          <a class="navbar-brand" href="#section-1">
+            <img src="../static/assets/img/logo-navbar.png" alt="random" style="width: 4rem;">
+          </a>
+    
+          <!-- toggler -->
+          <button class="xyz navbar-toggler custom-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent " aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    
+          <!-- List Items -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav nav-pills">
+              <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
+                <a class="xyz nav-link mx-4 mt-2" href="{{url_for('home')}}">Home</a>
+              </li>
+  
+              </li>
+            </ul>
+    
+          </div>
+    
+        </nav>
+    
+      </section>
+      <section>
+        <div class="row">
+              <div class="col-lg-3 ">
+                <img src="../static/assets/img/pencil-right.png" alt="" style="width: 100%; padding:5rem;">
+              </div>
+            <div style="margin-top:3rem; margin-bottom: 4rem;" class="col-lg-6">
+                <h1 style="margin-bottom: 4rem;">Login to your Messlytix Account:</h1>
+          
+                    <div ><label>Reg. No:</label><input class="input" type="text" name="name" required style="background-color: #0077b3e7;"></div>
+                    <div ><label>Password:</label><input class="input" type="password" name="name" required style="background-color: #0077b3e7;"></div>
+                    <a href="{{url_for('student')}}"><button class="btn1" style="padding: 0rem 4rem;margin-left:4rem;margin-top:0.2rem;">Submit</button></a>
+               
+           </div>
+           <div class="col-lg-3">
+            <img src="../static/assets/img/pencil-left.png" alt=""  style="width:100%; padding:5rem;">
+          </div>
+          
+        </div> 
+      </section>
+  
+  </body>
+  {% endblock content %}

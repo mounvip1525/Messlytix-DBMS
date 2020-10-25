@@ -45,12 +45,15 @@ def choose():
     return render_template('choose.html')
     
 #student login
-@app.route('/login',methods=['GET','POST'])
-def login():
-    return render_template('login.html')
-
+@app.route('/studentlogin',methods=['GET','POST'])
+def studentlogin():
+    return render_template('studentlogin.html')
+#admin login
+@app.route('/adminlogin',methods=['GET','POST'])
+def adminlogin():
+    return render_template('adminlogin.html')
 # admin
-@app.route('/admin')
+@app.route('/admin',methods=['GET','POST'])
 def admin():
     attendees=getattendees()
     return render_template('admin.html',new_attendance='The number of attendees are {} \n'.format(attendees))
