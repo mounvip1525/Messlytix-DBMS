@@ -11,11 +11,11 @@ app = Flask(__name__,
 app.debug = True
 app.secret_key = "super secret key"
 
-conn=mysql.connector.connect(host="remotemysql.com",
-                            user="q97ShIgpvf",           #enter username for your mysql usernmae , defaultis root
-                            password="kwoOpcYuzD",         #enter the password
-                            database="q97ShIgpvf")         #enter the database
-cur=conn.cursor()
+# conn=mysql.connector.connect(host="remotemysql.com",
+#                             user="q97ShIgpvf",           #enter username for your mysql usernmae , defaultis root
+#                             password="kwoOpcYuzD",         #enter the password
+#                             database="q97ShIgpvf")         #enter the database
+# cur=conn.cursor()
 
 
 model = pickle.load(open('messmodel.pkl', 'rb'))
@@ -43,6 +43,11 @@ def signup():
 @app.route('/choose')
 def choose():
     return render_template('choose.html')
+    
+#student login
+@app.route('/login',methods=['GET','POST'])
+def login():
+    return render_template('login.html')
 
 # admin
 @app.route('/admin')
