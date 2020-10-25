@@ -1,21 +1,25 @@
 import numpy as np
-from flask import Flask, request, jsonify, render_template,flash
+from flask import Flask, request, jsonify, render_template,flash,redirect
 from flask_sqlalchemy import SQLAlchemy
 import mysql.connector
 import time
 from datetime import datetime
 import pickle
 
+usr='Admin' #Default Admin Username
+pwd='Password' #Default Admin Password
+usrnm=""
+
 app = Flask(__name__,
             static_folder='static')
 app.debug = True
 app.secret_key = "super secret key"
 
-# conn=mysql.connector.connect(host="remotemysql.com",
-#                             user="q97ShIgpvf",           #enter username for your mysql usernmae , defaultis root
-#                             password="kwoOpcYuzD",         #enter the password
-#                             database="q97ShIgpvf")         #enter the database
-# cur=conn.cursor()
+conn=mysql.connector.connect(host="remotemysql.com",
+                            user="q97ShIgpvf",           #enter username for your mysql usernmae , defaultis root
+                            password="kwoOpcYuzD",         #enter the password
+                            database="q97ShIgpvf")         #enter the database
+cur=conn.cursor()
 
 
 model = pickle.load(open('messmodel.pkl', 'rb'))
@@ -23,7 +27,7 @@ def getattendees():
     query=("SELECT count(*) FROM feedback WHERE attendance=1")
     cur.execute(query)
     q=cur.fetchone()
-    ans=q[0]
+    ans = q[0]
     return ans
 
 
@@ -45,15 +49,27 @@ def choose():
     return render_template('choose.html')
     
 #student login
-@app.route('/login',methods=['GET','POST'])
+@app.route('/slogin',methods=['GET','POST'])
 def login():
     return render_template('login.html')
 
+# Admin Login
+@app.route('/adminlogin', methods=['GET','POST'])
+def adminlogin():
+    return render_template('adminlogin.html')
+
 # admin
-@app.route('/admin')
+@app.route('/admin',methods=['GET','POST'])
 def admin():
+    uname=request.form.get('username')
+    pw=request.form.get('password')
+    global usr
+    global pwd
     attendees=getattendees()
-    return render_template('admin.html',new_attendance='The number of attendees are {} \n'.format(attendees))
+    if(uname==usr and pw==pwd):
+        return render_template('admin.html',new_attendance='The number of attendees are {} \n'.format(attendees))
+    else:
+        return redirect('/adminlogin')
 
 # analyse
 @app.route('/analyse')
@@ -61,23 +77,44 @@ def analyse():
     return render_template('analyze.html')
 
 # STUDENT
-@app.route('/student')
+@app.route('/student',methods=['GET','POST'])
 def student():
-    return render_template('student.html')
+    global usrnm 
+    usrnm = request.form.get('username')
+    pswd=request.form.get('password')
+    print(usrnm,pswd)
+    query=("SELECT count(*) FROM student_admin WHERE reg_no = %s AND password = %s")
+    credentials=(usrnm,pswd)
+    cur.execute(query,credentials)
+    ans=cur.fetchone()
+    ans=ans[0]
+    print(ans)
+    if(ans == 1):
+        print(usrnm)
+        return render_template('student.html'), usrnm
+    else:
+        return redirect('/slogin')
 
 # submit
 @app.route('/submit', methods=['POST'])
 def submit():
     if request.method == 'POST':
-        name = request.form['name']
-        regno = request.form['regno']
+        global usrnm
+        regno=usrnm
+        namequery=("SELECT fname FROM student_admin WHERE reg_no = %s")
+        regno=(regno,)
+        cur.execute(namequery,regno)
+        regno=regno[0]
+        name=cur.fetchone()
+        name=name[0]
         attendance = request.form['attendance']
         if attendance=="yes":
             attendance=1
         elif attendance=="no":
             attendance=0
-        add_entry=("INSERT INTO feedback ""(regno,name,attendance)""VALUES(%s,%s,%s)")
+        add_entry="INSERT INTO feedback "+"(regno,name,attendance) "+"VALUES(%s,%s,%s)"
         entry=(regno,name,attendance)
+        print(entry)
         try:
             cur.execute(add_entry,entry)
             conn.commit()
@@ -88,6 +125,7 @@ def submit():
         
         # else:
         #     return render_template('student.html')
+        # return "ok"
 
 @app.route('/submitdetails',methods=['GET','POST'])
 def submitdetails():
@@ -96,6 +134,7 @@ def submitdetails():
     mname=request.form['mname']
     lname=request.form['lname']
     email=request.form.get('email')
+    pwd=request.form.get('password')
     messid=request.form['messid']
     phno=request.form['phno']
     state=request.form['State']
@@ -103,8 +142,8 @@ def submitdetails():
     timestamp = datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
     regtime=timestamp
 
-    sdetails=("INSERT INTO student_admin (reg_no,fname,mname,lname,email_id,phone_no,reg_time,mess_id,state) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)")
-    vals=(regno,fname,mname,lname,email,phno,regtime,messid,state)
+    sdetails=("INSERT INTO student_admin (reg_no,fname,mname,lname,email_id,phone_no,reg_time,mess_id,state,password) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
+    vals=(regno,fname,mname,lname,email,phno,regtime,messid,state,pwd)
     cur.execute(sdetails,vals)
     conn.commit()
     return render_template('success.html')
