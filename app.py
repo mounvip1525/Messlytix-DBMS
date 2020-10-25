@@ -50,8 +50,8 @@ def choose():
     
 #student login
 @app.route('/slogin',methods=['GET','POST'])
-def login():
-    return render_template('login.html')
+def studentlogin():
+    return render_template('studentlogin.html')
 
 # Admin Login
 @app.route('/adminlogin', methods=['GET','POST'])
