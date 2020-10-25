@@ -103,6 +103,11 @@ def submitdetails():
     cur.execute(sdetails,vals)
     conn.commit()
     return render_template('success.html')
+
+#success
+app.route('/success', methods=['GET','POST'])
+def success():
+    return render_template('success.html')
 #mess
 @app.route('/mess')
 def mess():

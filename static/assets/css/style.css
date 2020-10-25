@@ -220,7 +220,7 @@ a:hover{
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
-  font-size: 17px;
+  font-size: 20px;
   line-height: 50px;
   color: #ffffff;
 }
@@ -251,4 +251,9 @@ td{
 .view-menu{
   margin-top:10px;
   font-size:20px;
+}
+
+a{
+  text-decoration: none;
+
 }
