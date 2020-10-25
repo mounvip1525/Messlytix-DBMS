@@ -35,20 +35,11 @@ function clock()
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav nav-pills">
               <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
-                <a class="xyz nav-link mx-4 mt-2" href="#section-1">Home</a>
+                <a class="xyz nav-link mx-4 mt-2" href="{{url_for('home')}}">Home</a>
               </li>
-              <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
-                <a class="nav-link mx-4 mt-2" href="#section-2">Benefits</a>
-              </li>
-    
-    
+  
               </li>
             </ul>
-            <div style="margin-left:50rem;">
-              <button class="login">
-                <a class="nav-link" href="{{url_for('choose')}}" target="blank">Login</a>
-              </button>
-            </div>
     
           </div>
     
@@ -60,14 +51,13 @@ function clock()
               <div class="col-lg-3 ">
                 <img src="../static/assets/img/pencil-right.png" alt="" style="width: 100%; padding:5rem;">
               </div>
-            <div style="margin-top: 8rem; margin-bottom: 4rem;" class="col-lg-6">
+            <div style="margin-top:3rem; margin-bottom: 4rem;" class="col-lg-6">
                 <h1 style="margin-bottom: 4rem;">Login to your Messlytix Account:</h1>
-            
-                <form action="" method="POST">
+          
                     <div ><label>Username:</label><input class="input" type="text" name="name" required style="background-color: #0077b3e7;"></div>
                     <div ><label>Password:</label><input class="input" type="password" name="name" required style="background-color: #0077b3e7;"></div>
-                    <div style="padding:2rem;"><button class="btn1" type="submit" style="padding: 0rem 4rem;">Submit</button></div>
-                </form>
+                    <a href="{{url_for('student')}}"><button class="btn1" style="padding: 0rem 4rem;margin-left:4rem;margin-top:0.2rem;">Submit</button></a>
+             
            </div>
            <div class="col-lg-3">
             <img src="../static/assets/img/pencil-left.png" alt=""  style="width:100%; padding:5rem;">

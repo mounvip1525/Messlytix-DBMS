@@ -48,9 +48,6 @@ function clock()
           <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
             <a class="xyz nav-link mx-4 mt-2" href="{{url_for('home')}}">Home</a>
           </li>
-          <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
-            <a class="nav-link mx-4 mt-2" href="#section-2">Why use Messlytix?</a>
-          </li>
         </ul>
     </nav>
 
@@ -77,8 +74,6 @@ function clock()
             <h2 class="price-text">{{ message }}</h2>
 
             <form action="{{ url_for('submit')}}", method="post">
-                <div class="abc"><label>Name:</label><input class="input" type="text" name="name" required="required"></div>
-                <div class="abc" ><label>Reg No:</label><input class="input" type="text" name="regno" required="required"></div>
                 <div class="abc"><h2>Attending</h2></div>
                 <div class="abcd" ><label>Yes:</label><input class="input" type="radio" name="attendance" value="yes" ></div>
                 <div class="abcd" ><label>No:</label><input class="input" type="radio" name="attendance" value="no" ></div>
