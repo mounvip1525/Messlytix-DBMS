@@ -31,6 +31,42 @@ def getattendees():
     ans = q[0]
     return ans
 
+def getmeal():
+    now=datetime.datetime.now()
+    actual_time=datetime.time(now.hour,now.minute,now.second)
+    t1=datetime.time(12,0,0)
+    t2=datetime.time(20,0,0)
+    if(actual_time<t1):
+        meal='breakfast'
+    elif(actual_time>t1 and actual_time<t2):
+        meal='lunch'
+    else:
+        meal='dinner'
+    return meal
+
+m=getmeal()
+print(m)
+
+
+def getmenuitemsbymeal(meal):
+    global usrnm
+    query=("select i.item_id,i.item_name from student_admin s,mess,contains c,menu_items i where s.reg_no=%s and s.mess_id=mess.mess_id and mess.date=%s and mess.meal=%s and mess.menu_id=c.menu_id and c.item_id=i.item_id")
+    # ts = time.time()
+    # timestamp = datetime.fromtimestamp(ts).strftime('%Y-%m-%d')
+    timestamp=datetime.date(2020,1,11)
+    vals=(usrnm,timestamp,meal)
+    cur.execute(query,vals)
+    result=cur.fetchall()
+    return result
+
+def getmenuid(meal):
+    global usrnm
+    query=("select m.menu_id,m.total_cal from student_admin s,mess,menu m where s.reg_no=%s and s.mess_id=mess.mess_id and mess.date=%s and mess.meal=%s and mess.menu_id=m.menu_id")
+    timestamp=datetime.date(2020,1,11)
+    vals=(usrnm,timestamp,meal)
+    cur.execute(query,vals)
+    result=cur.fetchall()
+    return result
 
 
 @app.route('/', methods=["GET", "POST"])
@@ -153,26 +189,38 @@ def submitdetails():
 app.route('/success', methods=['GET','POST'])
 def success():
     return render_template('success.html')
+
+
 #mess
 @app.route('/mess')
 def mess():
     return render_template('mess.html')
+
+
 #mess-rating
 @app.route('/rating')
 def rating():
     return render_template('rating.html')
+
+
 #menu
-@app.route('/menu')
+@app.route('/menu',methods=['GET','POST'])
 def menu():
-    return render_template('menu.html')
+    return render_template('menu.html',items=getmenuitemsbymeal(getmeal()),ID=getmenuid(getmeal()))
+
+
 #special-request
 @app.route('/specialrequest')
 def specialrequest():
     return render_template('specialrequest.html')
+
+
 #special-food
 @app.route('/specialfood')
 def specialfood():
     return render_template('specialfood.html')
+
+
 # prediction0
 @app.route('/predict', methods=['POST'])
 def predict():

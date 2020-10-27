@@ -26,47 +26,29 @@
         </li>
       </ul>
   </nav>
-    <div class="card-header" style="display:flex;justify-content: space-between; width:75%;margin:auto;margin-top:80px;border-radius: 3px;">
-        <h2>Mess ID: MID01</h2>
-        <h2>Total Calories: 110</h2>
-    </div>
-    <div class="card-body" style="width:50%;margin: auto;">
-    <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Item ID</th>
-            <th>Item Name</th>
-            <th>Quantity</th>
-            <th>Calories</th>  
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>IT01</td>
-            <td>Pizza</td>
-            <td>10</td>
-            <td>10</td>
-          </tr>
-          <tr>
-            <td>IT02</td>
-            <td>Burger</td>
-            <td>15</td>
-            <td>10</td>
-          </tr>
-          <tr>
-            <td>IT03</td>
-            <td>Pasta</td>
-            <td>35</td>
-            <td>10</td>
-          </tr>
-          <tr>
-            <td>IT04</td>
-            <td>Shawarma</td>
-            <td>5</td>
-            <td>10</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <div class="card-header" style="display:flex;justify-content: space-between; width:75%;margin:auto;margin-top:80px;border-radius: 3px;">
+    <h2>Menu ID: {{ID[0][0]}}</h2>
+    <h2>Total Calories: {{ID[0][1]}}</h2>
+</div>
+<div class="card-body" style="width:50%;margin: auto;">
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Item ID</th>
+        <th>Item Name</th>
+        <!-- <th>Quantity</th>
+        <th>Calories</th>   -->
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in items %}
+      <tr>
+        <td>{{ i[0] }}</td>
+        <td> {{ i[1] }} </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 </body>
 {% endblock content %}
