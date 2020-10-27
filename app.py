@@ -3,7 +3,7 @@ from flask import Flask, request, jsonify, render_template,flash,redirect
 from flask_sqlalchemy import SQLAlchemy
 import mysql.connector
 import time
-from datetime import datetime
+import datetime
 import pickle
 from passlib.hash import sha256_crypt
 
@@ -176,7 +176,7 @@ def submitdetails():
     phno=request.form['phno']
     state=request.form['State']
     ts = time.time()
-    timestamp = datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+    timestamp = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
     regtime=timestamp
 
     sdetails=("INSERT INTO student_admin (reg_no,fname,mname,lname,email_id,phone_no,reg_time,mess_id,state,password) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
