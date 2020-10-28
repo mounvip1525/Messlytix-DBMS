@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+
 body {
   background: black;
   font-size: 1.1rem;
@@ -285,4 +288,18 @@ a{
 }
 .active:hover{
   transform:scale(1.02);
+}
+
+
+#addfestival{
+  font-family: "Montserrat", sans-serif;  
+  color:white;
+  font-size: 30px;
+
+
+}
+
+#submitbuttonprimary{
+  color:black;
+  font-size:30px;
 }
