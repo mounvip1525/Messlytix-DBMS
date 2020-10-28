@@ -8,6 +8,10 @@ body {
   padding-top: 75px;
   font-family: "Montserrat", sans-serif;
 }
+.split{
+  width:100%;
+  position:fixed;
+}
 #card{
     background-color: #1d8bc2;
     color: whitesmoke;
@@ -238,16 +242,27 @@ a:hover{
   font-size: 1.5rem;
   color: white;
 }
+table{
+  border:1px solid white;
+  z-index:100;
+  border-collapse: collapse;
+  border-radius: 10px;
+  border-style: hidden; 
+  box-shadow: 0 0 0 1px #666;
+  margin:5px;
+  text-align:center;
+}
+
 th{
-  color:white;
+  text-transform: uppercase;
+  text-shadow: 0.5px 0.5px 0px rgb(255, 255, 255);
+  background:#007bba;
 }
 td{
   color:whitesmoke;
+  border: 1px solid #ccc;
 }  
-.table-striped>tbody>tr:nth-child(odd)>td, 
-.table-striped>tbody>tr:nth-child(odd)>th {
- background-color: #3497c9;
-}
+
 .view-menu{
   margin-top:10px;
   font-size:20px;
