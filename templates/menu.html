@@ -22,11 +22,12 @@
           <a class="xyz nav-link mx-4 mt-2" href="{{url_for('home')}}">Home</a>
         </li>
         <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
-          <a class="nav-link mx-4 mt-2" href="#section-2">Why use Messlytix?</a>
+          <a class="nav-link mx-4 mt-2" href="{{url_for('attendance')}}">Attendance</a>
         </li>
       </ul>
   </nav>
   <div class="card-header" style="display:flex;justify-content: space-between; width:75%;margin:auto;margin-top:80px;border-radius: 3px;">
+    <h2>Mess ID:M01</h2>
     <h2>Menu ID: {{ID[0][0]}}</h2>
     <h2>Total Calories: {{ID[0][1]}}</h2>
 </div>

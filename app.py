@@ -128,9 +128,14 @@ def student():
     print(ans)
     if(sha256_crypt.verify(pswd,ans)):
         print(usrnm)
-        return render_template('student.html'), usrnm
+        return render_template('menu.html',items=getmenuitemsbymeal(getmeal()),ID=getmenuid(getmeal())), usrnm
     else:
         return redirect('/slogin')
+
+#attendance page
+@app.route('/attendance',methods=['POST','GET'])
+def attendance():
+    return render_template('student.html')
 
 # submit
 @app.route('/submit', methods=['POST'])
@@ -195,13 +200,6 @@ def success():
 @app.route('/mess')
 def mess():
     return render_template('mess.html')
-
-
-#mess-rating
-@app.route('/rating')
-def rating():
-    return render_template('rating.html')
-
 
 #menu
 @app.route('/menu',methods=['GET','POST'])

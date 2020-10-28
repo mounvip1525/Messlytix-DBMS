@@ -47,31 +47,12 @@
           <div class="card-body">
             <h1 style="margin-left:-6rem">Mess ID: <span class="badge badge-secondary" style="background-color:#007bba;margin-left:1.2rem;"> MS011</span></h1>
             <h1 style="margin-left:1.2rem;">Today is: <span class="badge badge-secondary" style="background-color:#007bba;margin-left:1.2rem"><span class="head-text" id="datetime"></span></span></h1>
-                    <div class="dropdown" style="margin-top:1rem;">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="background-color:#007bba;margin-left:1rem;width:530px;margin-top:1rem;">
-                      Select Meal
-                    </button>
-                    <div class="dropdown-menu" style="width:530px;text-align:center;">
-                      <a class="dropdown-item" href="#">Breakfast</a>
-                      <a class="dropdown-item" href="#">Lunch</a>
-                      <a class="dropdown-item" href="#">Dinner</a>
-                    </div>
                   </div></div>
                   <div style="display:flex;flex-direction: row;justify-content: space-between;margin-left:2em;margin-right:2em;margin-bottom:2.5rem;margin-top:2em;">
                   <div class="form-check">
                     
                     <label class="form-check-label">
                      <a href="{{url_for('menu')}}"> <input type="radio" class="form-check-input" name="menu">Menu</a>
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                        <a href="{{url_for('rating')}}">  <input type="radio" class="form-check-input" name="rating">Rating</a>
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                        <a href="{{url_for('specialrequest')}}">  <input type="radio" class="form-check-input" name="specialrequest">Special Request</a>
                     </label>
                   </div>
                 </div>
