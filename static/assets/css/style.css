@@ -9,17 +9,17 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 #card{
-    background-color: #094c6d;
-    color: white;
+    background-color: #1d8bc2;
+    color: whitesmoke;
     border: 2px solid white;
-    margin: 3rem 13rem;
-    margin-top: 2rem;
-    padding: 1rem;
-    box-shadow: 20px 20px rgba(0, 255, 234, 0.616),
-    30px 30px rgba(159, 252, 255, 0.644),
-    40px 40px rgba(131, 118, 250, 0.589),
-    50px 50px rgba(255, 255, 255, 0.527),
-    60px 60px rgba(0, 0, 0, 0.05);
+    margin: 2rem 12rem;
+    margin-top: 2.2rem;
+    padding: 0.5rem;
+    box-shadow: 15px 15px rgba(0, 255, 234, 0.616),
+    27px 27px rgba(159, 252, 255, 0.644),
+    34px 34px rgba(131, 118, 250, 0.589),
+    41px 41px rgba(255, 255, 255, 0.527),
+    48px 48px rgba(0, 0, 0, 0.05);
 }
 .cardbtn{
     background-color: #1a2c35;
@@ -256,4 +256,18 @@ td{
 a{
   text-decoration: none;
 
+}
+.active{
+  color: rgb(8, 8, 8);
+  font-weight: bold;
+  border-radius: 100%;
+  border-width: 1%;
+  background-color: rgb(210, 224, 231);
+  border-radius: 2rem;
+  margin: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.active:hover{
+  transform:scale(1.02);
 }

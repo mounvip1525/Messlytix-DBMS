@@ -33,9 +33,10 @@ function clock()
     
           <!-- List Items -->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav nav-pills">
-              <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
-                <a class="xyz nav-link mx-4 mt-2" href="{{url_for('home')}}">Home</a>
+            <h2 style="margin-right:55.5rem">LOGIN</h2>
+            <ul class="navbar-nav nav-pills active">
+              <li class="nav-item mx-auto push" data-toggle="collapse" data-target=".navbar-collapse">
+                <a class="xyz nav-link mx-4 mt-2 "  href="{{url_for('home')}}">Home</a>
               </li>
   
               </li>
@@ -52,7 +53,7 @@ function clock()
                 <img src="../static/assets/img/pencil-right.png" alt="" style="width: 100%; padding:5rem;">
               </div>
             <div style="margin-top:3rem; margin-bottom: 4rem;" class="col-lg-6">
-                <h1 style="margin-bottom: 4rem;">Login to your Messlytix Account:</h1>
+                <h2 style="margin-top:2rem;margin-bottom: 2rem;">Login to your Messlytix Account:</h2>
                 <form action="{{ url_for('student') }}" method="POST">
                   <div ><label>Username:</label><input class="input" type="text" name="username" required style="background-color: #0077b3e7;"></div>
                   <div ><label>Password:</label><input class="input" type="password" name="password" required style="background-color: #0077b3e7;"></div>

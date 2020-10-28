@@ -196,11 +196,6 @@ def success():
     return render_template('success.html')
 
 
-#mess
-@app.route('/mess')
-def mess():
-    return render_template('mess.html')
-
 #menu
 @app.route('/menu',methods=['GET','POST'])
 def menu():
