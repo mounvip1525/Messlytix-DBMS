@@ -1,6 +1,5 @@
 import numpy as np
 from flask import Flask, request, jsonify, render_template,flash,redirect
-from flask_sqlalchemy import SQLAlchemy
 import mysql.connector
 import time
 import datetime
