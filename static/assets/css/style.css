@@ -231,6 +231,12 @@ a:hover{
   line-height: 50px;
   color: #ffffff;
 }
+.heading-2{
+  font-weight: bold;
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  margin-top:-4rem;
+}
 .heading-top {
   font-family: "Bebas Neue", cursive;
   font-size: 5rem;
@@ -258,8 +264,8 @@ table{
 
 th{
   text-transform: uppercase;
-  text-shadow: 0.5px 0.5px 0px rgb(255, 255, 255);
-  background:#007bba;
+  color:white;
+  text-shadow: 1px 1px 0px rgb(25, 187, 236);
 }
 td{
   color:whitesmoke;
@@ -301,4 +307,53 @@ a{
   color:black;
   font-size:30px;
 }
-
+.thumbs-up{
+  width:400px;
+  height:400px;
+  position:absolute;
+  margin-left:25%;
+  background:url(../img/giphy.gif);
+  background-size: 90%;
+  background-repeat: no-repeat;
+  object-fit: cover;
+}
+.input-field{
+  width:90%;
+  border-radius: 5px;
+  border:1px solid white;
+  outline:none;
+}
+.label-field{
+  float:left;
+  margin-left:5%;
+}
+ul{
+  list-style-type:none;
+}
+.login-form{
+  margin-left:8rem;
+}
+.label-field2{
+  float:left;
+  margin-left:5%;
+}
+.input-field2{
+  width:70%;
+  border-radius: 5px;
+  border:1px solid white;
+  outline:none;
+  margin-right:30rem;
+  margin-left:2rem;
+  margin-bottom:3%;
+  height:40px;
+}
+.loginbtn{
+  padding: 0rem 4rem;
+  margin-left:-5rem;
+  margin-top:1rem;
+}
+.heading-3{
+  font-size:30px;
+  border:1px solid white;
+  padding:8px;
+}

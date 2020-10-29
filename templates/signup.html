@@ -20,12 +20,10 @@
   
         <!-- List Items -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto nav-pills">
+          <h3 style="margin-right:53rem">SIGNUP</h3>
+          <ul class="navbar-nav ml-auto nav-pills active" style="margin-right:2%">
             <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
               <a class="xyz nav-link mx-4 mt-2" href="{{url_for('home')}}">Home</a>
-            </li>
-            <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
-              <a class="nav-link mx-4 mt-2" href="#section-2">Why use Messlytix?</a>
             </li>
           </ul>
         
@@ -43,7 +41,7 @@
   </section>
   
               
-        <div class="pricing-colum " style="margin: 2rem 18rem;">
+        <div class="pricing-colum " style="margin: 2rem 20rem;">
           <div class="card">
             <div class="card-header">
               <h3>Give your details below</h3>
@@ -52,15 +50,15 @@
               <h2 class="price-text">{{ message }}</h2>
   
               <form action="{{ url_for('submitdetails')}}", method="post">
-                  <div class="abc"><label>First Name:</label><input class="input" type="text" name="fname" required="required"></div>
-                  <div class="abc"><label>Mid Name:</label><input class="input" type="text" name="mname"  default='NULL'></div>
-                  <div class="abc"><label>Last Name:</label><input class="input" type="text" name="lname" required="required"></div>
-                  <div class="abc"><label>Reg No. :</label><input class="input" type="text" name="regno" required="required"></div>
-                  <div class="abc" ><label>Email ID:</label><input class="input" type="text" name="email" required="required"></div>
-                  <div class="abc" ><label>Password:</label><input class="input" type="password" name="password" required="required"></div>
-                  <div class="abc" ><label>mess ID: </label><input class="input" type="text" name="messid" required="required"></div>
-                  <div class="abc" ><label>Phone no:  </label><input class="input" type="text" name="phno" required="required"></div>
-                  <div class="abc" ><label>State code:  </label><input class="input" type="text" name="State" required="required"></div>
+                  <div><label class="label-field">First Name:</label><input class="input-field" type="text" name="fname" required="required"></div>
+                  <div><label class="label-field">Mid Name:</label><input class="input-field" type="text" name="mname"  default='NULL'></div>
+                  <div><label class="label-field">Last Name:</label><input class="input-field" type="text" name="lname" required="required"></div>
+                  <div><label class="label-field">Registration No. :</label><input class="input-field" type="text" name="regno" required="required"></div>
+                  <div ><label class="label-field">Email ID:</label><input class="input-field" type="text" name="email" required="required"></div>
+                  <div ><label class="label-field">Password:</label><input class="input-field" type="password" name="password" required="required"></div>
+                  <div ><label class="label-field">Mess ID: </label><input class="input-field" type="text" name="messid" required="required"></div>
+                  <div ><label class="label-field">Phone no:  </label><input class="input-field" type="text" name="phno" required="required"></div>
+                  <div ><label class="label-field">State code:  </label><input class="input-field" type="text" name="State" required="required"></div>
               <button class="btn1 btn-block" type="submit">Submit</button>
             </form>
             </div>

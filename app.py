@@ -187,7 +187,7 @@ def submitdetails():
     vals=(regno,fname,mname,lname,email,phno,regtime,messid,state,pwd)
     cur.execute(sdetails,vals)
     conn.commit()
-    return render_template('success.html')
+    return render_template('allsuccess.html')
 
 #success
 app.route('/success', methods=['GET','POST'])
@@ -203,7 +203,7 @@ def addfestival():
     fest_name=(festival,)
     cur.execute(fest_add,fest_name)
     conn.commit()
-    return render_template('success.html')
+    return render_template('allsuccess.html')
 
 #menu
 @app.route('/menu',methods=['GET','POST'])
@@ -222,6 +222,10 @@ def specialrequest():
 def specialfood():
     return render_template('specialfood.html')
 
+#last page(success)
+@app.route('/allsuccess')
+def allsuccess():
+    return render_template('allsuccess.html')
 
 # prediction0
 @app.route('/predict', methods=['POST'])
