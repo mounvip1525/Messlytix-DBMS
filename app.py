@@ -194,6 +194,15 @@ app.route('/success', methods=['GET','POST'])
 def success():
     return render_template('success.html')
 
+#addfestival
+@app.route('/addfestival',methods=['GET','POST'])
+def addfestival():
+    festival=request.form.get('festival')
+    fest_add="REPLACE INTO "+" food_festival(festival_name) "+" VALUES %s"
+    fest_name=(festival,)
+    cur.execute(fest_add,fest_name)
+    conn.commit()
+    return render_template('success.html')
 
 #menu
 @app.route('/menu',methods=['GET','POST'])
