@@ -153,7 +153,7 @@ def submit():
             attendance=1
         elif attendance=="no":
             attendance=0
-        add_entry="INSERT INTO feedback "+"(regno,name,attendance) "+"VALUES(%s,%s,%s)"
+        add_entry="REPLACE INTO feedback "+"(regno,name,attendance) "+"VALUES(%s,%s,%s)"
         entry=(regno,name,attendance)
         print(entry)
         try:
@@ -214,7 +214,14 @@ def menu():
 #special-request
 @app.route('/specialrequest')
 def specialrequest():
-    return render_template('specialrequest.html')
+    global usrnm
+    query=("select distinct f.festival_name from student_admin s, food_festival f where s.reg_no=%s and s.state=f.state or f.state='IN'")
+    values=(usrnm,)
+    cur.execute(query,values)
+    result=cur.fetchall()
+
+
+    return render_template('specialrequest.html', result=result)
 
 
 #special-food

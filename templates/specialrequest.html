@@ -32,10 +32,9 @@
       </div>
       <div class="card-body">
           <div class="jumbotron" style="background-color:black;display:flex;flex-direction: column;font-size: 2rem;">
-            <a href="{{url_for('specialfood')}}">Diwali</a>
-            <a href="{{url_for('specialfood')}}">Christmas</a>
-            <a href="{{url_for('specialfood')}}">New year</a>
-            <a href="{{url_for('specialfood')}}">Pongal</a>
+            {% for r in result %}
+            <a href="{{url_for('specialfood')}}">{{ r[0] }}</a>
+            {% endfor %}
             <form action="{{ url_for('addfestival')}}" method="post">
           <div style="align-items:center;" id="addfestival" style="margin-top:30px;">
             Don't see your festival above? Want to add?
