@@ -37,8 +37,11 @@
             <a href="{{url_for('specialfood')}}">New year</a>
             <a href="{{url_for('specialfood')}}">Pongal</a>
             <form action="{{ url_for('addfestival')}}",method="post">
-          <div align="center" id="addfestival" style="margin-top:30px">Don't see your festival above? Want to add? <input type="text" name="festival" id="submitbuttonprimary" ></div>
-         <center> <button type="submit" style="margin-top:10px" class="btn btn-primary">Submit</button></center>
+          <div style="align-items:center" id="addfestival" style="margin-top:30px">
+            Don't see your festival above? Want to add?
+            <input type="text" name="festival">
+          </div>
+         <div> <button type="submit" style="margin-top:10px" class="btn btn-primary">Submit</button></div>
         </form>
               
           </div>
