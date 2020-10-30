@@ -1,49 +1,50 @@
 {% extends "layout.html" %}
 {% block content %}
 <nav class="navbar navbar-expand-xl fixed-top" style="height:100px" id="myScrollspy">
-  
-    <!-- name -->
-    <a class="navbar-brand" href="#section-1">
-      <img class="fluid" src="../static/assets/img/logo-navbar.png" style="height: 5rem;">
-    </a>
 
-    <!-- toggler -->
-    <button class="xyz navbar-toggler custom-toggler" type="button" data-toggle="collapse"
-      data-target="#navbarSupportedContent " aria-controls="navbarSupportedContent" aria-expanded="false"
-      aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <!-- name -->
+  <a class="navbar-brand" href="#section-1">
+    <img class="fluid" src="../static/assets/img/logo-navbar.png" style="height: 5rem;">
+  </a>
 
-    <!-- List Items -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto nav-pills">
-        <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
-          <a class="xyz nav-link mx-4 mt-2" href="{{url_for('home')}}">Home</a>
-        </li>
-        <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
-          <a class="nav-link mx-4 mt-2" href="#section-2">Why use Messlytix?</a>
-        </li>
-      </ul>
-  </nav>
-  <div class="pricing-colum " style="margin: 4rem 15rem;">
-    <div class="card">
-      <div class="card-header">
-        <h3>Here's a list of your festivals coming up:</h3>
-      </div>
-      <div class="card-body">
-          <div class="jumbotron" style="background-color:black;display:flex;flex-direction: column;font-size: 2rem;">
-            {% for r in result %}
-            <a href="{{url_for('specialfood')}}">{{ r[0] }}</a>
-            {% endfor %}
-            <form action="{{ url_for('addfestival')}}" method="post">
-          <div style="align-items:center;" id="addfestival" style="margin-top:30px;">
-            Don't see your festival above? Want to add?
+  <!-- toggler -->
+  <button class="xyz navbar-toggler custom-toggler" type="button" data-toggle="collapse"
+    data-target="#navbarSupportedContent " aria-controls="navbarSupportedContent" aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- List Items -->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto nav-pills">
+      <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
+        <a class="xyz nav-link mx-4 mt-2" href="{{url_for('home')}}">Home</a>
+      </li>
+      <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
+        <a class="nav-link mx-4 mt-2" href="#section-2">Why use Messlytix?</a>
+      </li>
+    </ul>
+</nav>
+<div class="pricing-colum " style="margin: 4rem 15rem;">
+  <div class="card">
+    <div class="card-header">
+      <h3>Here's a list of your festivals coming up:</h3>
+    </div>
+    <div class="card-body">
+      <div class="jumbotron" style="background-color:black;display:flex;flex-direction: column;font-size: 2rem;">
+        {% for r in result %}
+        <form action="{{url_for('specialfood') }}">
+          <input type="submit" class="input-field3" name="{{r[0]}}" value="{{r[0]}}"></input>
+        </form>
+        {% endfor %}
+        <form action="{{ url_for('addfestival')}}" method="post">
+          <div style="align-items:center;margin-top:20px" id="addfestival">Don't see your festival above? Want to add?
             <input type="text" name="festival">
           </div>
-         <div> <button type="submit" style="margin-top:10px;" class="btn btn-primary">Submit</button></div>
+          <div> <button type="submit" style="margin-top:10px;" class="btn btn-primary">Submit</button></div>
         </form>
-              
-          </div>
-              
-          </div>
-{% endblock content %}
+
+      </div>
+
+    </div>
+    {% endblock content %}

@@ -205,6 +205,18 @@ def addfestival():
     conn.commit()
     return render_template('allsuccess.html')
 
+#special-food request
+@app.route('/foodrequest',methods=['GET','POST'])
+def foodrequest():
+    food=request.form.get('food')
+    print(food)
+    food_add="INSERT INTO "+" special_foodrequest(spfood_name) "+" VALUES (%s)"
+    food_name=(food,)
+    cur.execute(food_add,food_name)
+    conn.commit()
+    return render_template('allsuccess.html')
+
+
 #menu
 @app.route('/menu',methods=['GET','POST'])
 def menu():
@@ -215,12 +227,10 @@ def menu():
 @app.route('/specialrequest')
 def specialrequest():
     global usrnm
-    query=("select distinct f.festival_name from student_admin s, food_festival f where s.reg_no=%s and s.state=f.state or f.state='IN'")
+    query=("select distinct f.festival_name from student_admin s, food_festival f where s.reg_no=%s and s.state=f.state or f.state='IN' order by length(f.festival_name)")
     values=(usrnm,)
     cur.execute(query,values)
     result=cur.fetchall()
-
-
     return render_template('specialrequest.html', result=result)
 
 
@@ -230,7 +240,7 @@ def specialfood():
     return render_template('specialfood.html')
 
 #last page(success)
-@app.route('/allsuccess')
+@app.route('/allsuccess/')
 def allsuccess():
     return render_template('allsuccess.html')
 
