@@ -19,7 +19,7 @@ body {
     background-color: #1d8bc2;
     color: whitesmoke;
     border: 2px solid white;
-    margin: 2rem 12rem;
+    margin: 2rem 14rem;
     margin-top: 2.2rem;
     padding: 0.5rem;
     box-shadow: 15px 15px rgba(0, 255, 234, 0.616),
@@ -236,6 +236,7 @@ a:hover{
   font-size: 3rem;
   margin-bottom: 0.5rem;
   margin-top:-4rem;
+  margin-left:12%;
 }
 .heading-top {
   font-family: "Bebas Neue", cursive;
@@ -317,6 +318,17 @@ a{
   background-repeat: no-repeat;
   object-fit: cover;
 }
+.thumbs-up2{
+  width:300px;
+  height:300px;
+  position:absolute;
+  margin-left:45%;
+  background:url(../img/giphy.gif);
+  background-size: 90%;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  margin-top:-5%;
+}
 .input-field{
   width:90%;
   border-radius: 5px;
@@ -331,7 +343,7 @@ ul{
   list-style-type:none;
 }
 .login-form{
-  margin-left:8rem;
+  margin-left:7rem;
 }
 .label-field2{
   float:left;
@@ -349,7 +361,7 @@ ul{
 }
 .loginbtn{
   padding: 0rem 4rem;
-  margin-left:-5rem;
+  margin-left:-5.5rem;
   margin-top:1rem;
 }
 .heading-3{
@@ -366,3 +378,7 @@ ul{
 .input-field3:hover{
   color:rgb(32, 190, 218);
 }
+::marker{
+  color: #007bba;
+}
+

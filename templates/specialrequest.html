@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="80" style="background-image:-webkit-linear-gradient(55deg,#0278ae 50%,rgb(0, 0, 0) 50%)"></body>
 <nav class="navbar navbar-expand-xl fixed-top" style="height:100px" id="myScrollspy">
 
   <!-- name -->
@@ -16,12 +17,10 @@
 
   <!-- List Items -->
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <h2 style="margin-right:45.5rem">UPCOMING FESTIVALS</h2>
     <ul class="navbar-nav ml-auto nav-pills">
       <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
-        <a class="xyz nav-link mx-4 mt-2" href="{{url_for('home')}}">Home</a>
-      </li>
-      <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
-        <a class="nav-link mx-4 mt-2" href="#section-2">Why use Messlytix?</a>
+        <a class="xyz nav-link mx-4 mt-2 active" href="{{url_for('home')}}">Home</a>
       </li>
     </ul>
 </nav>
@@ -33,7 +32,7 @@
     <div class="card-body">
       <div class="jumbotron" style="background-color:black;display:flex;flex-direction: column;font-size: 2rem;">
         {% for r in result %}
-        <form action="{{url_for('specialfood') }}">
+        <form action="{{ url_for('specialfood',fest_name=r[0])}}">
           <input type="submit" class="input-field3" name="{{r[0]}}" value="{{r[0]}}"></input>
         </form>
         {% endfor %}
@@ -47,4 +46,5 @@
       </div>
 
     </div>
+  </body>
     {% endblock content %}

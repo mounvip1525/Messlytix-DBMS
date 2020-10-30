@@ -16,18 +16,16 @@
 
     <!-- List Items -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <h2 style="margin-right:45.5rem">FESTIVE DISHES</h2>
       <ul class="navbar-nav ml-auto nav-pills">
         <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
-          <a class="xyz nav-link mx-4 mt-2" href="{{url_for('home')}}">Home</a>
-        </li>
-        <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
-          <a class="nav-link mx-4 mt-2" href="#section-2">Why use Messlytix?</a>
+          <a class="xyz nav-link mx-4 mt-2 active" href="{{url_for('home')}}">Home</a>
         </li>
       </ul>
   </nav>
   <div class="card-header" style="display:flex;justify-content: space-between; width:75%;margin:auto;margin-top:80px;border-radius: 3px;">
     <h2>Here's a list of items offered for the festival:</h2>
-    <h2>Diwali</h2>
+    <h2>{{ fest_name }}</h2>
 </div>
   <div class="card-body" style="width:50%;margin: auto;">
     <table class="table table-striped">

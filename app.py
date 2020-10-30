@@ -235,12 +235,13 @@ def specialrequest():
 
 
 #special-food
-@app.route('/specialfood')
-def specialfood():
-    return render_template('specialfood.html')
+@app.route('/specialfood/<fest_name>',methods=['GET','POST'])
+def specialfood(fest_name):
+    print(fest_name)
+    return render_template('specialfood.html',fest_name=fest_name)
 
 #last page(success)
-@app.route('/allsuccess/')
+@app.route('/allsuccess')
 def allsuccess():
     return render_template('allsuccess.html')
 

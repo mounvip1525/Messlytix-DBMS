@@ -20,13 +20,12 @@
 
       <!-- List Items -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <h1>Student Response</h1>
-      <ul class="navbar-nav ml-auto nav-pills"></ul>
-      <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
-        <a class="xyz nav-link mx-4 mt-2" href="{{url_for('choose')}}">Home</a>
-      </li>
-      </div>
-
+        <h2>STUDENT RESPONSE</h2>
+        <ul class="navbar-nav ml-auto nav-pills">
+          <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
+            <a class="xyz nav-link mx-4 mt-2 active" href="{{url_for('home')}}">Home</a>
+          </li>
+        </ul>
     </nav>
 
   </section>
@@ -37,9 +36,10 @@
         <h1 class="heading">THANK YOU FOR YOUR RESPONSE!</h1>
         <a href="{{url_for('home')}}" class="xyz btn1 heading-3">Go back to Home!</a>
         <br>
+        <div class="thumbs-up2"></div>
         <h3 style="margin-left:10%">OR</h3>
         <a href="{{url_for('specialrequest')}}" class="xyz btn1 heading-3">Want to check upcoming festivals?</a>
-     
+        
 
     </div>
 </section>
