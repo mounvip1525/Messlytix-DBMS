@@ -238,7 +238,11 @@ def specialrequest():
 @app.route('/specialfood/<fest_name>',methods=['GET','POST'])
 def specialfood(fest_name):
     print(fest_name)
-    return render_template('specialfood.html',fest_name=fest_name)
+    query=("SELECT spl_food, name, quantity from special_food where festival=%s;")
+    fest=(fest_name,)
+    cur.execute(query,fest)
+    festlist=cur.fetchall()
+    return render_template('specialfood.html',fest_name=fest_name,festlist=festlist)
 
 #last page(success)
 @app.route('/allsuccess')

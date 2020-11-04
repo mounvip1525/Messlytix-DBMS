@@ -34,34 +34,16 @@
             <th>Sp.Item ID</th>
             <th>Sp.Item Name</th>
             <th>Sp.Quantity</th>
-            <th>Sp.Calories</th>  
           </tr>
         </thead>
         <tbody>
+          {% for i in festlist %}
           <tr>
-            <td>IT01</td>
-            <td>Sweet</td>
-            <td>10</td>
-            <td>10</td>
+            <td>{{ i[0] }}</td>
+            <td> {{ i[1] }} </td>
+            <td>{{ i[2] }}</td>
           </tr>
-          <tr>
-            <td>IT02</td>
-            <td>Sweet</td>
-            <td>15</td>
-            <td>10</td>
-          </tr>
-          <tr>
-            <td>IT03</td>
-            <td>Sweet</td>
-            <td>35</td>
-            <td>10</td>
-          </tr>
-          <tr>
-            <td>IT04</td>
-            <td>Sweet</td>
-            <td>5</td>
-            <td>10</td>
-          </tr>
+          {% endfor %}
         </tbody>
       </table>
       <form action="{{ url_for('foodrequest')}}" method="post">
