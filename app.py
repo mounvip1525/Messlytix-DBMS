@@ -153,6 +153,7 @@ def submitfeedback():
     vals=(feedback,usrnm)
     cur.execute(query,vals)
     conn.commit()
+    return redirect('/attendance')
 
 
 # submit
@@ -266,7 +267,18 @@ def specialfood(fest_name):
 #last page(success)
 @app.route('/allsuccess')
 def allsuccess():
-    return render_template('allsuccess.html')    
+    return render_template('allsuccess.html')   
+
+#feedback
+@app.route('/feedback',methods=['POST','GET'])
+def feedback():
+    fb=request.form.get('comments')
+    print(fb) 
+    add_entry="INSERT INTO "+" comments "+" VALUES (%s)"
+    fb_1=(fb,)
+    cur.execute(add_entry,fb_1)
+    conn.commit()
+    return render_template('student.html')
 
 
 # prediction0
