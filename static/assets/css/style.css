@@ -60,6 +60,22 @@ body {
   color: rgb(255, 255, 255);
   border: 3px solid rgba(255, 255, 255, 0.842);
 }
+.feedback {
+  background-color:  #007bba;
+  color: rgb(0, 0, 0);
+  border: none;
+  font-weight: bold;
+  padding-left: 30px;
+  padding-right: 35px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  outline:none;
+}
+.feedback:hover {
+  color:white;
+  border:2px solid white;
+  outline:none;
+}
 .cardbtn {
   background-color: #1a2c35;
   color: white;

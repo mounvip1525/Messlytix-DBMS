@@ -37,11 +37,8 @@ function clock()
           <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
             <a class="xyz nav-link mx-4 mt-2" href="{{url_for('home')}}">Home</a>
           </li>
-          <li class="nav-item mx-auto" data-toggle="collapse" data-target=".navbar-collapse">
-            <a class="nav-link mx-4 mt-2" href="">Why use Messlytix?</a>
-          </li>
         </ul>
-        <div style="padding-left: 37rem;"><a href="https://messlytixdashboard.herokuapp.com/" target="_blank">
+        <div style="padding-left: 44rem;"><a href="https://messlytixdashboard.herokuapp.com/" target="_blank">
             <button class="btn2 btn btn-light">Dashboard
             </button></a></div>
       </div>
@@ -51,7 +48,7 @@ function clock()
   </section>
   <section id="section-2" >
     <div class="text-left ml-3" style="text-align: center;">
-        <h1 class="heading-top" style="margin-top: 60px; margin-bottom: 0px;padding-bottom: 0px; text-align: center;">
+        <h1 class="heading-top-student" style="margin-top: 60px; margin-bottom: 0px;padding-bottom: 0px; text-align: center;">
           Hello Admin!
         </h1>
         <div style="text-align: center;"><span class="head-text">Today is </span><span class="head-text" id="datetime"></span></div>
@@ -61,8 +58,8 @@ function clock()
 
     </div>
   </section >
-         <h1 class="heading">{{ new_attendance }}</h1>
-        <div class="pricing-column col-lg-8 " style="margin: 2rem 15rem;">
+         <h1 class="heading" style="margin-left:20%">{{ new_attendance }}</h1>
+        <div class="pricing-column col-lg-8 " style="width:80%;margin-left:17%">
           <div class="card">
             <div class="card-header">
               <h3>Amount of food to be cooked today</h3>

@@ -67,6 +67,14 @@ def getmenuid(meal):
     result=cur.fetchall()
     return result
 
+def getspecialmenuitems(fest_name):
+    query=("select s.spl_food,s.name from special_food s,selects c where c.spl_food=s.spl_food and c.festival_name=%s;")
+    val=(fest_name,)
+    cur.execute(query,val)
+    result=cur.fetchall()
+    print(result)
+    return result
+
 
 @app.route('/', methods=["GET", "POST"])
 # home
@@ -238,12 +246,13 @@ def specialrequest():
 @app.route('/specialfood/<fest_name>',methods=['GET','POST'])
 def specialfood(fest_name):
     print(fest_name)
-    return render_template('specialfood.html',fest_name=fest_name)
+    return render_template('specialfood.html',fest_name=fest_name,sp_items=getspecialmenuitems(fest_name))
 
 #last page(success)
 @app.route('/allsuccess')
 def allsuccess():
-    return render_template('allsuccess.html')
+    return render_template('allsuccess.html')    
+
 
 # prediction0
 @app.route('/predict', methods=['POST'])
