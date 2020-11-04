@@ -246,20 +246,24 @@ def specialrequest():
 @app.route('/specialfood/<fest_name>',methods=['GET','POST'])
 def specialfood(fest_name):
     print(fest_name)
-<<<<<<< HEAD
     return render_template('specialfood.html',fest_name=fest_name,sp_items=getspecialmenuitems(fest_name))
-=======
-    query=("SELECT spl_food, name, quantity from special_food where festival=%s;")
-    fest=(fest_name,)
-    cur.execute(query,fest)
-    festlist=cur.fetchall()
-    return render_template('specialfood.html',fest_name=fest_name,festlist=festlist)
->>>>>>> 5895b1c68f208124aa6d8225c529f3532321b6ca
+
 
 #last page(success)
 @app.route('/allsuccess')
 def allsuccess():
-    return render_template('allsuccess.html')    
+    return render_template('allsuccess.html')   
+
+#feedback
+@app.route('/feedback',methods=['POST','GET'])
+def feedback():
+    fb=request.form.get('comments')
+    print(fb) 
+    add_entry="INSERT INTO "+" comments "+" VALUES (%s)"
+    fb_1=(fb,)
+    cur.execute(add_entry,fb_1)
+    conn.commit()
+    return render_template('student.html')
 
 
 # prediction0

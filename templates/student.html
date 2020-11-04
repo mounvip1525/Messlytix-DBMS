@@ -56,7 +56,7 @@ $('#myModal').on('shown.bs.modal', function () {
           </li>
         </ul>
     </nav>
-    <form action="/feedback">
+    <form action="{{url_for('feedback')}}" method='post'>
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -67,7 +67,7 @@ $('#myModal').on('shown.bs.modal', function () {
             </button>
           </div>
           <div class="modal-body">
-            <textarea style="width:80%;height:100%" name="feedback"></textarea>
+            <input style="width:80%;height:100px;" name="comments"></input>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
