@@ -41,7 +41,7 @@ def getmeal():
         meal='lunch'
     else:
         meal='dinner'
-    return meal
+    return 'lunch'
 
 m=getmeal()
 print(m)

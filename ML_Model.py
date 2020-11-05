@@ -16,7 +16,7 @@ import pickle
 # In[6]:
 
 
-data = pd.read_csv(r'FOODYLYTICSDATASET.csv')
+data = pd.read_csv(r'DATASET.csv')
 data.head()
 
 
